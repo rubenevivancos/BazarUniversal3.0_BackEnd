@@ -6,7 +6,7 @@ const pg = require('pg');
 // Configuración para Sequelize para utilizar el cliente de PostgreSQL de pg
 pg.defaults.ssl = {
     require: true,
-    rejectUnauthorized: true,
+    rejectUnauthorized: false,
     ca: CA_CERTIFICATE
 };
 

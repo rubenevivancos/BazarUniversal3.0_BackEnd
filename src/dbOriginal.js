@@ -1,6 +1,6 @@
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
-const { DB_DEPLOY, CA_CERTIFICATE } = process.env;
+const { DB_DEPLOY } = process.env;
 
 
 const sequelize = new Sequelize(`${DB_DEPLOY}`, {
@@ -8,13 +8,6 @@ const sequelize = new Sequelize(`${DB_DEPLOY}`, {
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
   define: {
     freezeTableName: true //El valor true hace que el nombre del modelo sea igual al de la tabla
-  },
-  dialectOptions: {
-    ssl: {
-      require: true,
-      ca: CA_CERTIFICATE, // Usa el contenido del certificado CA desde la variable de entorno
-      rejectUnauthorized: true // Asegura que Sequelize valide el certificado del servidor
-    }
   }
 });
 
