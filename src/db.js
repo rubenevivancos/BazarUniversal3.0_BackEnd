@@ -20,5 +20,5 @@ const sequelize = new Sequelize(`${DB_DEPLOY}`, {
 
 
 module.exports = {
-  conn: sequelize     // para importart la conexión { conn } = require('./db.js');
+  conn: sequelize     // para importar la conexión { conn } = require('./db.js');
 };
