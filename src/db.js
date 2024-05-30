@@ -5,6 +5,7 @@ const pg = require('pg');
 
 // Configuración para Sequelize para utilizar el cliente de PostgreSQL de pg
 pg.defaults.ssl = {
+    require: true,
     rejectUnauthorized: true,
     ca: CA_CERTIFICATE
 };
@@ -17,13 +18,6 @@ const sequelize = new Sequelize(`${DB_DEPLOY}`, {
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
   define: {
     freezeTableName: true //El valor true hace que el nombre del modelo sea igual al de la tabla
-  },
-  dialectOptions: {
-    ssl: {
-      require: true,
-      ca: CA_CERTIFICATE, // Usa el contenido del certificado CA desde la variable de entorno
-      rejectUnauthorized: true // Asegura que Sequelize valide el certificado del servidor
-    }
   }
 });
 
