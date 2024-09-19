@@ -1,5 +1,3 @@
-# BazarUniversal3.0_BackEnd
-
 ## **BazarUniversal3.0 - BackEnd**
 
 <img width="100" height="120" src="./bazarUniversal.png" />
